@@ -1,0 +1,25 @@
+﻿@model IEnumerable<IEnumerable<int>>
+@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<div>
+    @foreach (var guess in Model)
+    {
+        <br />
+        <table>
+            @for (int row = 0; row < 6; row++)
+            {
+                <tr>
+                    @for (int column = 1; column < 11; column++)
+                    {
+                        int item = 10 * row + column;
+                        <td style="color: @(guess.Contains(item)? "red" : "green")">@(item)&nbsp;</td>
+                    }
+                </tr>
+            }
+        </table>
+    }
+
+</div>
